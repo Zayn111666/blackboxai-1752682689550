@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Kaal Chakr - Cosmic Time Wheel | Melooha Enhanced</title>
+    <meta name="description" content="Experience the revolutionary Kaal Chakr time wheel. Visualize planetary movements and their cosmic influence on your life journey in real-time.">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔮</text></svg>">
+    <style>
+        .kaal-chakr-enhanced {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 2rem auto;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                #ff6b6b 0deg 30deg,
+                #4ecdc4 30deg 60deg,
+                #45b7d1 60deg 90deg,
+                #96ceb4 90deg 120deg,
+                #ffeaa7 120deg 150deg,
+                #dda0dd 150deg 180deg,
+                #98d8c8 180deg 210deg,
+                #f7dc6f 210deg 240deg,
+                #bb8fce 240deg 270deg,
+                #85c1e9 270deg 300deg,
+                #f8c471 300deg 330deg,
+                #ec7063 330deg 360deg
+            );
+            box-shadow: 
+                0 0 50px rgba(139, 92, 246, 0.4),
+                inset 0 0 50px rgba(0, 0, 0, 0.2);
+            animation: cosmicRotate 120s linear infinite;
+        }
+
+        .zodiac-signs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .zodiac-sign {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform-origin: center;
+        }
+
+        .planets-layer {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .planet {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .planet:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+
+        .kaal-chakr-center-enhanced {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 0 30px rgba(139, 92, 246, 0.6),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .controls-panel {
+            background: var(--surface-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 1px solid var(--border-color);
+        }
+
+        .control-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .control-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .control-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .control-input {
+            padding: 0.5rem;
+            background: var(--background-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .time-display {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .planetary-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .planet-card {
+            background: var(--surface-light);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .planet-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-cosmic);
+        }
+
+        .planet-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .planet-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @keyframes cosmicRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .interpretation-panel {
+            background: var(--surface-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 1px solid var(--border-color);
+        }
+
+        .birth-time-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🔮 Melooha Enhanced</div>
+            <ul class="nav-menu">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="/kaal-chakr.html" class="nav-link">Kaal Chakr</a></li>
+                <li><a href="/community.html" class="nav-link">Community</a></li>
+                <li><a href="/index.html#blogs" class="nav-link">Blogs</a></li>
+                <li><a href="/index.html#about" class="nav-link">About</a></li>
+                <li><a href="/admin.html" class="nav-link btn btn-outline">Admin</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <div class="hero-content">
+            <h1>Interactive Kaal Chakr</h1>
+            <p>Experience the cosmic time wheel that reveals how planetary movements influence your life journey. This ancient Vedic concept visualized through modern technology.</p>
+        </div>
+    </section>
+
+    <!-- Birth Details Form -->
+    <section class="section">
+        <div class="container">
+            <div class="controls-panel">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">🌟 Enter Your Birth Details</h3>
+                
+                <form class="birth-time-form" id="birthDetailsForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" id="fullName" placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Date of Birth</label>
+                        <input type="date" class="form-input" id="birthDate">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Time of Birth</label>
+                        <input type="time" class="form-input" id="birthTime">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Place of Birth</label>
+                        <input type="text" class="form-input" id="birthPlace" placeholder="City, Country">
+                    </div>
+                </form>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="generateKaalChakr()">🔮 Generate Your Kaal Chakr</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kaal Chakr Visualization -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Cosmic Time Wheel</h2>
+                <div class="time-display" id="currentTime">
+                    Current Cosmic Time: <span id="timeValue">Loading...</span>
+                </div>
+            </div>
+            
+            <div class="kaal-chakr-enhanced" id="kaalChakrWheel">
+                <!-- Zodiac Signs -->
+                <div class="zodiac-signs">
+                    <div class="zodiac-sign" style="top: 10px; left: 50%; transform: translateX(-50%);">♈</div>
+                    <div class="zodiac-sign" style="top: 25%; right: 15%; transform: rotate(30deg);">♉</div>
+                    <div class="zodiac-sign" style="top: 45%; right: 5%; transform: rotate(60deg);">♊</div>
+                    <div class="zodiac-sign" style="bottom: 45%; right: 5%; transform: rotate(90deg);">♋</div>
+                    <div class="zodiac-sign" style="bottom: 25%; right: 15%; transform: rotate(120deg);">♌</div>
+                    <div class="zodiac-sign" style="bottom: 10px; left: 50%; transform: translateX(-50%) rotate(150deg);">♍</div>
+                    <div class="zodiac-sign" style="bottom: 25%; left: 15%; transform: rotate(180deg);">♎</div>
+                    <div class="zodiac-sign" style="bottom: 45%; left: 5%; transform: rotate(210deg);">♏</div>
+                    <div class="zodiac-sign" style="top: 45%; left: 5%; transform: rotate(240deg);">♐</div>
+                    <div class="zodiac-sign" style="top: 25%; left: 15%; transform: rotate(270deg);">♑</div>
+                    <div class="zodiac-sign" style="top: 10px; left: 30%; transform: rotate(300deg);">♒</div>
+                    <div class="zodiac-sign" style="top: 10px; right: 30%; transform: rotate(330deg);">♓</div>
+                </div>
+
+                <!-- Planets Layer -->
+                <div class="planets-layer">
+                    <div class="planet" id="sun" style="top: 20px; left: 50%; transform: translateX(-50%);" title="Sun - Soul, Vitality, Leadership">☉</div>
+                    <div class="planet" id="moon" style="top: 30%; right: 30px;" title="Moon - Mind, Emotions, Intuition">☽</div>
+                    <div class="planet" id="mercury" style="bottom: 30%; right: 30px;" title="Mercury - Communication, Intelligence">☿</div>
+                    <div class="planet" id="venus" style="bottom: 20px; left: 50%; transform: translateX(-50%);" title="Venus - Love, Beauty, Harmony">♀</div>
+                    <div class="planet" id="mars" style="bottom: 30%; left: 30px;" title="Mars - Energy, Action, Courage">♂</div>
+                    <div class="planet" id="jupiter" style="top: 30%; left: 30px;" title="Jupiter - Wisdom, Expansion, Fortune">♃</div>
+                    <div class="planet" id="saturn" style="top: 50%; left: 10px;" title="Saturn - Discipline, Karma, Lessons">♄</div>
+                    <div class="planet" id="rahu" style="top: 50%; right: 10px;" title="Rahu - Desires, Innovation, Future">☊</div>
+                </div>
+
+                <!-- Center -->
+                <div class="kaal-chakr-center-enhanced">
+                    🕉️
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls-panel">
+                <h3 style="text-align: center; margin-bottom: 2rem;">⚙️ Cosmic Controls</h3>
+                
+                <div class="control-group">
+                    <div class="control-item">
+                        <label class="control-label">Time Speed</label>
+                        <select class="control-input" id="timeSpeed" onchange="adjustTimeSpeed()">
+                            <option value="1">Real Time</option>
+                            <option value="60">1 Hour = 1 Minute</option>
+                            <option value="1440">1 Day = 1 Minute</option>
+                            <option value="43200">1 Month = 1 Minute</option>
+                            <option value="525600">1 Year = 1 Minute</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-item">
+                        <label class="control-label">View Mode</label>
+                        <select class="control-input" id="viewMode" onchange="changeViewMode()">
+                            <option value="current">Current Transits</option>
+                            <option value="birth">Birth Chart</option>
+                            <option value="progression">Progressed Chart</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-item">
+                        <label class="control-label">Highlight Planet</label>
+                        <select class="control-input" id="highlightPlanet" onchange="highlightPlanet()">
+                            <option value="">None</option>
+                            <option value="sun">Sun ☉</option>
+                            <option value="moon">Moon ☽</option>
+                            <option value="mercury">Mercury ☿</option>
+                            <option value="venus">Venus ♀</option>
+                            <option value="mars">Mars ♂</option>
+                            <option value="jupiter">Jupiter ♃</option>
+                            <option value="saturn">Saturn ♄</option>
+                            <option value="rahu">Rahu ☊</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button class="btn btn-secondary" onclick="pauseAnimation()">⏸️ Pause</button>
+                    <button class="btn btn-secondary" onclick="playAnimation()">▶️ Play</button>
+                    <button class="btn btn-secondary" onclick="resetToNow()">🔄 Reset to Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planetary Information -->
+    <section class="section" style="background: var(--surface-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Planetary Influences</h2>
+                <p class="section-subtitle">Understand how each planet affects your life journey</p>
+            </div>
+            
+            <div class="planetary-info" id="planetaryInfo">
+                <!-- Planetary information will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interpretation Panel -->
+    <section class="section">
+        <div class="container">
+            <div class="interpretation-panel">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">🔮 Cosmic Interpretation</h3>
+                <div id="interpretationContent">
+                    <p style="text-align: center; color: var(--text-secondary);">
+                        Enter your birth details above to receive personalized cosmic insights based on your unique Kaal Chakr configuration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🔮 Melooha Enhanced</h3>
+                    <p>Experience the revolutionary Kaal Chakr and unlock the secrets of cosmic time.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kaal Chakr Features</h3>
+                    <a href="#">Interactive Time Wheel</a><br>
+                    <a href="#">Planetary Positions</a><br>
+                    <a href="#">Transit Analysis</a><br>
+                    <a href="#">Birth Chart Overlay</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Learn More</h3>
+                    <a href="/index.html#blogs">Vedic Astrology Blogs</a><br>
+                    <a href="/community.html">Community Insights</a><br>
+                    <a href="/index.html#testimonials">User Experiences</a><br>
+                    <a href="/index.html#about">About Kaal Chakr</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>📧 kaalchakr@melooha-enhanced.com</p>
+                    <p>🌐 Cosmic Guidance 24/7</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Melooha Enhanced. All rights reserved. | Powered by Cosmic Intelligence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script>
+        let animationSpeed = 1;
+        let isPaused = false;
+        let currentTime = new Date();
+
+        // Initialize the Kaal Chakr
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCurrentTime();
+            initializePlanetaryInfo();
+            setInterval(updateCurrentTime, 1000);
+        });
+
+        function updateCurrentTime() {
+            if (!isPaused) {
+                currentTime = new Date(currentTime.getTime() + (1000 * animationSpeed));
+                document.getElementById('timeValue').textContent = currentTime.toLocaleString();
+            }
+        }
+
+        function generateKaalChakr() {
+            const fullName = document.getElementById('fullName').value;
+            const birthDate = document.getElementById('birthDate').value;
+            const birthTime = document.getElementById('birthTime').value;
+            const birthPlace = document.getElementById('birthPlace').value;
+
+            if (!fullName || !birthDate || !birthTime || !birthPlace) {
+                alert('Please fill in all birth details to generate your personalized Kaal Chakr.');
+                return;
+            }
+
+            // Generate personalized interpretation
+            const interpretation = generateInterpretation(fullName, birthDate, birthTime, birthPlace);
+            document.getElementById('interpretationContent').innerHTML = interpretation;
+
+            // Add visual feedback
+            const wheel = document.getElementById('kaalChakrWheel');
+            wheel.style.boxShadow = '0 0 100px rgba(139, 92, 246, 0.8), inset 0 0 50px rgba(255, 255, 255, 0.1)';
+            
+            // Show success message
+            showAlert('success', `Kaal Chakr generated for ${fullName}! Scroll down to see your cosmic interpretation.`);
+        }
+
+        function generateInterpretation(name, date, time, place) {
+            const birthDate = new Date(date);
+            const zodiacSigns = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];
+            const sunSign = zodiacSigns[birthDate.getMonth() % 12];
+            
+            return `
+                <div style="text-align: left;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🌟 Cosmic Profile for ${name}</h4>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h5>📅 Birth Details:</h5>
+                        <p><strong>Date:</strong> ${new Date(date).toLocaleDateString()}</p>
+                        <p><strong>Time:</strong> ${time}</p>
+                        <p><strong>Place:</strong> ${place}</p>
+                        <p><strong>Primary Sun Sign:</strong> ${sunSign}</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h5>🔮 Kaal Chakr Insights:</h5>
+                        <p>Your cosmic time wheel reveals a unique pattern of planetary influences that shape your life journey. The position of celestial bodies at your birth moment creates a personal cosmic signature that continues to evolve through planetary transits.</p>
+                        
+                        <p><strong>Current Cosmic Phase:</strong> You are experiencing a period of ${getCurrentCosmicPhase()} energy, which brings opportunities for ${getCosmicOpportunities(sunSign)}.</p>
+                        
+                        <p><strong>Planetary Guidance:</strong> The current planetary transits suggest focusing on ${getPlanetaryGuidance()} while being mindful of ${getCosmicChallenges()}.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h5>⭐ Life Path Insights:</h5>
+                        <p>Your Kaal Chakr indicates a soul journey focused on ${getLifePathInsights(sunSign)}. The cosmic energies support your growth in areas of ${getGrowthAreas()} while teaching important lessons about ${getLifeLessons()}.</p>
+                    </div>
+                    
+                    <div style="background: var(--surface-light); padding: 1.5rem; border-radius: 0.75rem; border-left: 4px solid var(--primary-color);">
+                        <h5>🎯 Cosmic Recommendations:</h5>
+                        <ul style="margin-left: 1rem;">
+                            <li>Practice meditation during ${getMeditationTime()} for enhanced spiritual connection</li>
+                            <li>Wear ${getGemstoneRecommendation(sunSign)} to amplify positive planetary influences</li>
+                            <li>Focus on ${getActionRecommendation()} during the current cosmic period</li>
+                            <li>Be mindful of ${getCautionAdvice()} in the coming weeks</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getCurrentCosmicPhase() {
+            const phases = ['transformative', 'expansive', 'introspective', 'creative', 'healing', 'manifesting'];
+            return phases[Math.floor(Math.random() * phases.length)];
+        }
+
+        function getCosmicOpportunities(sign) {
+            const opportunities = {
+                'Aries': 'leadership and new beginnings',
+                'Taurus': 'stability and material growth',
+                'Gemini': 'communication and learning',
+                'Cancer': 'emotional healing and nurturing',
+                'Leo': 'creative expression and recognition',
+                'Virgo': 'organization and service',
+                'Libra': 'relationships and harmony',
+                'Scorpio': 'transformation and deep insights',
+                'Sagittarius': 'expansion and spiritual growth',
+                'Capricorn': 'achievement and structure',
+                'Aquarius': 'innovation and humanitarian efforts',
+                'Pisces': 'intuition and spiritual connection'
+            };
+            return opportunities[sign] || 'personal growth and self-discovery';
+        }
+
+        function getPlanetaryGuidance() {
+            const guidance = ['career advancement', 'relationship harmony', 'spiritual development', 'health and wellness', 'creative projects', 'financial planning'];
+            return guidance[Math.floor(Math.random() * guidance.length)];
+        }
+
+        function getCosmicChallenges() {
+            const challenges = ['communication misunderstandings', 'emotional fluctuations', 'energy depletion', 'decision-making delays', 'relationship tensions'];
+            return challenges[Math.floor(Math.random() * challenges.length)];
+        }
+
+        function getLifePathInsights(sign) {
+            const insights = {
+                'Aries': 'pioneering new paths and inspiring others',
+                'Taurus': 'building lasting foundations and appreciating beauty',
+                'Gemini': 'connecting people and sharing knowledge',
+                'Cancer': 'nurturing others and creating emotional security',
+                'Leo': 'expressing creativity and leading with heart',
+                'Virgo': 'serving others and perfecting skills',
+                'Libra': 'creating harmony and fostering cooperation',
+                'Scorpio': 'transforming challenges into wisdom',
+                'Sagittarius': 'seeking truth and expanding horizons',
+                'Capricorn': 'achieving mastery and building legacy',
+                'Aquarius': 'innovating for humanity\'s benefit',
+                'Pisces': 'connecting with universal consciousness'
+            };
+            return insights[sign] || 'discovering your unique purpose';
+        }
+
+        function getGrowthAreas() {
+            const areas = ['emotional intelligence', 'spiritual awareness', 'creative expression', 'leadership skills', 'intuitive abilities', 'communication mastery'];
+            return areas[Math.floor(Math.random() * areas.length)];
+        }
+
+        function getLifeLessons() {
+            const lessons = ['patience and perseverance', 'compassion and understanding', 'balance and moderation', 'courage and authenticity', 'wisdom and discernment'];
+            return lessons[Math.floor(Math.random() * lessons.length)];
+        }
+
+        function getMeditationTime() {
+            const times = ['sunrise', 'sunset', 'midnight', 'noon', 'dawn', 'twilight'];
+            return times[Math.floor(Math.random() * times.length)];
+        }
+
+        function getGemstoneRecommendation(sign) {
+            const gemstones = {
+                'Aries': 'Red Coral or Ruby',
+                'Taurus': 'Emerald or Rose Quartz',
+                'Gemini': 'Yellow Sapphire or Citrine',
+                'Cancer': 'Pearl or Moonstone',
+                'Leo': 'Ruby or Sunstone',
+                'Virgo': 'Emerald or Peridot',
+                'Libra': 'Diamond or Clear Quartz',
+                'Scorpio': 'Red Coral or Garnet',
+                'Sagittarius': 'Yellow Sapphire or Turquoise',
+                'Capricorn': 'Blue Sapphire or Amethyst',
+                'Aquarius': 'Blue Sapphire or Aquamarine',
+                'Pisces': 'Yellow Sapphire or Amethyst'
+            };
+            return gemstones[sign] || 'Clear Quartz';
+        }
+
+        function getActionRecommendation() {
+            const actions = ['starting new projects', 'strengthening relationships', 'pursuing education', 'improving health habits', 'developing spiritual practices', 'organizing your environment'];
+            return actions[Math.floor(Math.random() * actions.length)];
+        }
+
+        function getCautionAdvice() {
+            const advice = ['hasty decisions', 'overcommitment', 'neglecting self-care', 'communication gaps', 'financial impulsiveness'];
+            return advice[Math.floor(Math.random() * advice.length)];
+        }
+
+        function adjustTimeSpeed() {
+            const speed = document.getElementById('timeSpeed').value;
+            animationSpeed = parseInt(speed);
+        }
+
+        function changeViewMode() {
+            const mode = document.getElementById('viewMode').value;
+            // Implementation for different view modes
+            showAlert('info', `Switched to ${mode} view mode`);
+        }
+
+        function highlightPlanet() {
+            const planet = document.getElementById('highlightPlanet').value;
+            
+            // Reset all planets
+            document.querySelectorAll('.planet').forEach(p => {
+                p.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+                p.style.transform = 'scale(1)';
+            });
+            
+            // Highlight selected planet
+            if (planet) {
+                const planetElement = document.getElementById(planet);
+                if (planetElement) {
+                    planetElement.style.boxShadow = '0 0 40px rgba(255, 215, 0, 0.8)';
+                    planetElement.style.transform = 'scale(1.3)';
+                }
+            }
+        }
+
+        function pauseAnimation() {
+            isPaused = true;
+            document.getElementById('kaalChakrWheel').style.animationPlayState = 'paused';
+        }
+
+        function playAnimation() {
+            isPaused = false;
+            document.getElementById('kaalChakrWheel').style.animationPlayState = 'running';
+        }
+
+        function resetToNow() {
+            currentTime = new Date();
+            isPaused = false;
+            document.getElementById('k
