@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "username": "admin",
+    "email": "admin@melooha.com",
+    "fullName": "Admin User",
+    "password": "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+    "isAdmin": true,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "username": "demo_user",
+    "email": "demo@melooha.com",
+    "fullName": "Demo User",
+    "password": "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+    "isAdmin": false,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  }
+]
