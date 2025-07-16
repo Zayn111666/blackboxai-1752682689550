@@ -1,0 +1,137 @@
+[
+  {
+    "id": "1",
+    "name": "Priya Sharma",
+    "location": "Mumbai, India",
+    "rating": 5,
+    "comment": "Melooha's Kaal Chakr feature has completely transformed my understanding of Vedic astrology. The accuracy of predictions and the depth of insights provided are remarkable. I've been able to make better life decisions and understand my karmic patterns.",
+    "imageUrl": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-01-15T10:30:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Rajesh Kumar",
+    "location": "Delhi, India",
+    "rating": 5,
+    "comment": "The birth chart analysis is incredibly detailed and accurate. I was amazed by how precisely it described my personality traits and life patterns. The planetary transit predictions have helped me plan my career moves strategically.",
+    "imageUrl": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-01-20T14:45:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Anita Desai",
+    "location": "Bangalore, India",
+    "rating": 4,
+    "comment": "As someone who was skeptical about astrology, Melooha changed my perspective completely. The scientific approach to Vedic astrology and the AI-powered insights make it credible and practical for modern life.",
+    "imageUrl": "https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-01-25T09:15:00.000Z"
+  },
+  {
+    "id": "4",
+    "name": "Vikram Singh",
+    "location": "Jaipur, India",
+    "rating": 5,
+    "comment": "The compatibility analysis feature helped me understand my relationship dynamics better. The insights about planetary influences on partnerships are profound and have improved my marriage significantly.",
+    "imageUrl": "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-02-01T16:20:00.000Z"
+  },
+  {
+    "id": "5",
+    "name": "Meera Patel",
+    "location": "Ahmedabad, India",
+    "rating": 5,
+    "comment": "The daily guidance feature is like having a personal astrologer. The timing recommendations for important decisions have been incredibly accurate. I've seen positive changes in all areas of my life.",
+    "imageUrl": "https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-02-05T11:30:00.000Z"
+  },
+  {
+    "id": "6",
+    "name": "Arjun Reddy",
+    "location": "Hyderabad, India",
+    "rating": 4,
+    "comment": "The career guidance based on planetary positions has been spot-on. I changed my career path based on the recommendations and it's been the best decision of my life. The timing was perfect!",
+    "imageUrl": "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-02-10T13:45:00.000Z"
+  },
+  {
+    "id": "7",
+    "name": "Kavya Nair",
+    "location": "Kochi, India",
+    "rating": 5,
+    "comment": "The health predictions and remedies suggested through Vedic astrology have been life-changing. The gemstone recommendations and mantras have brought positive energy into my life.",
+    "imageUrl": "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-02-15T08:20:00.000Z"
+  },
+  {
+    "id": "8",
+    "name": "Rohit Gupta",
+    "location": "Pune, India",
+    "rating": 5,
+    "comment": "The financial astrology section helped me understand my money patterns and investment timing. Following the planetary guidance, my investments have performed exceptionally well.",
+    "imageUrl": "https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-02-20T15:10:00.000Z"
+  },
+  {
+    "id": "9",
+    "name": "Deepika Iyer",
+    "location": "Chennai, India",
+    "rating": 4,
+    "comment": "The spiritual guidance and meditation recommendations based on my birth chart have deepened my spiritual practice. The personalized mantras and rituals are incredibly powerful.",
+    "imageUrl": "https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-02-25T12:35:00.000Z"
+  },
+  {
+    "id": "10",
+    "name": "Sanjay Malhotra",
+    "location": "Chandigarh, India",
+    "rating": 5,
+    "comment": "The family astrology feature helped me understand the dynamics between family members. The remedies suggested for harmonious relationships have worked wonderfully for our household.",
+    "imageUrl": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-03-01T10:15:00.000Z"
+  },
+  {
+    "id": "11",
+    "name": "Ritu Agarwal",
+    "location": "Lucknow, India",
+    "rating": 5,
+    "comment": "The education and career guidance for my children based on their birth charts has been invaluable. They're now pursuing paths that align with their natural talents and planetary influences.",
+    "imageUrl": "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-03-05T14:25:00.000Z"
+  },
+  {
+    "id": "12",
+    "name": "Amit Joshi",
+    "location": "Indore, India",
+    "rating": 4,
+    "comment": "The travel astrology feature is unique and incredibly useful. Planning trips according to favorable planetary periods has made my travels more successful and enjoyable.",
+    "imageUrl": "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-03-10T09:40:00.000Z"
+  },
+  {
+    "id": "13",
+    "name": "Sunita Rao",
+    "location": "Mysore, India",
+    "rating": 5,
+    "comment": "The remedial astrology section with gemstone recommendations and Vastu tips has brought tremendous positive changes to my home and life. The energy shift is palpable.",
+    "imageUrl": "https://images.pexels.com/photos/1181717/pexels-photo-1181717.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-03-15T16:50:00.000Z"
+  },
+  {
+    "id": "14",
+    "name": "Karan Mehta",
+    "location": "Surat, India",
+    "rating": 5,
+    "comment": "The business astrology insights have helped me time my business launches and important decisions perfectly. My startup's success can be attributed to following the planetary guidance.",
+    "imageUrl": "https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-03-20T11:20:00.000Z"
+  },
+  {
+    "id": "15",
+    "name": "Pooja Saxena",
+    "location": "Bhopal, India",
+    "rating": 4,
+    "comment": "The marriage timing predictions were incredibly accurate. I met my life partner exactly during the period suggested by the app. The compatibility analysis confirmed we were meant to be together.",
+    "imageUrl": "https://images.pexels.com/photos/1181721/pexels-photo-1181721.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "date": "2024-03-25T13:15:00.000Z"
+  }
+]
